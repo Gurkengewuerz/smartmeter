@@ -1,3 +1,6 @@
+CREATE DATABASE `smartmeter`;
+USE `smartmeter`;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -26,6 +29,11 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`name`, `password`, `rank`) VALUES
 ('demo', '2a97516c354b68848cdbd8f54a226a0a55b21ed138e207ad6c5cbb9c00aa5aea', 'admin');
 
+INSERT INTO `settings` (`settingname`, `value`) VALUES
+('interval_min', '15'),
+('log_path', '/home/pi/smartmeter.log'),
+('log_rows', '200'),
+('resolution', '75');
 
 ALTER TABLE `data`
   ADD PRIMARY KEY (`timestamp`);

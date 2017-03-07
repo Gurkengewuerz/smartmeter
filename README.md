@@ -6,7 +6,8 @@ In hardware/ befindet sich der Schaltplan und eine kleine, noch nicht vollständ
     cd && git clone https://github.com/Gurkengewuerz/smartmeter.git
     apt-get install python3 python3-pip
     pip3 install pymysql 
-    apt-get install nginx mysql php5-fpm php5-curl php5-mysql
+    apt-get install nginx mysql-server php5-fpm php5-curl php5-mysql
+	mysql -u root -p < smartmeter/sql.sql
 
 
 Simpler Autostart: 
@@ -16,3 +17,6 @@ Simpler Autostart:
 Standard Admin User:
 - Benutzername: demo
 - Passwort: demo
+
+### HINWEIS:
+**Der GPIO MUSS auf Pull down geschaltet werden! Daher können keine I2C Schnittstellen verwendet werden! (3+5, 19+21, 8+10, ...)**
