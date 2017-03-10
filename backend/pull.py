@@ -27,6 +27,7 @@ LOG_FORMAT = "[%(asctime)s %(levelname)s] %(message)s"
 current_turn = 0
 until_time = 0
 last_insert = 0
+last_time = 0
 db = DB()
 # END WORKING VARIABLES
 
@@ -68,7 +69,10 @@ def insert_data(timestamp, value):
 
 
 def trigger_callback():
-    global current_turn
+    global current_turn, last_time
+    if time.time() - last_time < 0.25:  # MIN 250ms
+        return
+    last_time = time.time()
     current_turn += 1
     logging.debug(" => " + str(current_turn))
 
