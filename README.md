@@ -5,7 +5,7 @@ In hardware/ befindet sich der Schaltplan und eine kleine, noch nicht vollständ
     apt-get install git
     cd && git clone https://github.com/Gurkengewuerz/smartmeter.git
     apt-get install python3 python3-pip
-    pip3 install pymysql 
+    pip3 install -r backend/requirements.txt 
     apt-get install nginx mysql-server php5-fpm php5-curl php5-mysql
 	mysql -u root -p < smartmeter/sql.sql
 
